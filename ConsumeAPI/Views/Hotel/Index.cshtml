@@ -1,0 +1,29 @@
+﻿@model List<ConsumeAPI.ViewModel.HotelViewModel>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hotel List</title>
+</head>
+<body>
+<h1>Hotel List</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>Branch ID</th>
+        <th>Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var hotel in Model)
+    {
+        <tr>
+            <td>@hotel.ID</td>
+            <td>@hotel.Name</td>
+        </tr>
+    }
+    </tbody>
+</table>
+</body>
+</html>
