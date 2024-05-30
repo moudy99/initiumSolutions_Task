@@ -5,6 +5,6 @@ namespace ConsumeAPI.Repository
     public interface IHotelRepository
     {
         Task<List<HotelViewModel>> GetBranchNamesAsync();
-        Task<string> BookRoomAsync(BookingViewModel bookingRequest);
+        Task<customResponse<string>> BookRoomAsync(BookingViewModel bookingRequest);
     }
 }

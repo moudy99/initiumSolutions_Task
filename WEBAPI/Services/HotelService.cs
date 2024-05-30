@@ -20,12 +20,12 @@ namespace WEBAPI.Services
         {
             try
             {
-                var branches = await _hotelRepository.GetBranchNamesAsync();
-                var response = _mapper.Map<List<BranchDto>>(branches);
+                var hotels = await _hotelRepository.GetBranchNamesAsync();
+                var response = _mapper.Map<List<BranchDto>>(hotels);
                 return new CustomResponseDTO<List<BranchDto>>
                 {
                     Data = response,
-                    Message = "Branches retrieved successfully.",
+                    Message = "Hotels retrieved successfully.",
                     Succeeded = true,
                     Errors = null,
                     DiscountApplied = false
@@ -36,13 +36,14 @@ namespace WEBAPI.Services
                 return new CustomResponseDTO<List<BranchDto>>
                 {
                     Data = null,
-                    Message = "An error occurred while retrieving branches.",
+                    Message = "Error while retrieving the hotels data.",
                     Succeeded = false,
                     Errors = new List<string> { ex.Message },
                     DiscountApplied = false
                 };
             }
         }
+
 
         public async Task<CustomResponseDTO<string>> BookRoomAsync(BookingRequestDto bookingRequest)
         {
@@ -61,7 +62,7 @@ namespace WEBAPI.Services
                     await _hotelRepository.AddCustomerAsync(customer);
                 }
 
-                bool hasPreviousBookings = await _hotelRepository.HasPreviousBookingAsync(bookingRequest.NationalID);
+                bool hasPreviousBookings = await _hotelRepository.HasPreviousBookingAsync(bookingRequest.NationalID, bookingRequest.BranchID);
 
                 var booking = _mapper.Map<Booking>(bookingRequest);
                 booking.CustomerID = customer.ID;
@@ -71,12 +72,11 @@ namespace WEBAPI.Services
 
                 return new CustomResponseDTO<string>
                 {
-                    Data = $"Booking created successfully with ID: {booking.BookingID}",
+                    Data = "Booking created successfully ",
                     Message = "Booking created successfully.",
                     Succeeded = true,
                     Errors = null,
                     DiscountApplied = hasPreviousBookings
-
                 };
             }
             catch (Exception ex)
@@ -84,11 +84,10 @@ namespace WEBAPI.Services
                 return new CustomResponseDTO<string>
                 {
                     Data = null,
-                    Message = "An error occurred while booking the room.",
+                    Message = "error while booking the room.",
                     Succeeded = false,
                     Errors = new List<string> { ex.Message },
                     DiscountApplied = false
-
                 };
             }
         }

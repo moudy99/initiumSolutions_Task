@@ -22,25 +22,25 @@ namespace WEBAPI.Entities
                 {
                     ID = 1,
                     Name = "Conrad Cairo",
-                    Location = "1191 Nile Corniche, Cairo, Egypt"
+                    Location = "Cairo, Egypt"
                 },
                 new HotelBranch
                 {
                     ID = 2,
                     Name = "Fairmont Nile City",
-                    Location = "Nile City Towers "
+                    Location = "Cairo, Egypt "
                 },
                 new HotelBranch
                 {
                     ID = 3,
                     Name = "Kempinski Nile Hotel Cairo",
-                    Location = "12 Ahmed Ragheb St, Cairo, Egypt"
+                    Location = "Cairo, Egypt"
                 },
                 new HotelBranch
                 {
                     ID = 4,
                     Name = "InterContinental Cairo Semiramis",
-                    Location = " Garden City, Cairo, Egypt"
+                    Location = " Cairo, Egypt"
                 },
                 new HotelBranch
                 {
@@ -52,7 +52,7 @@ namespace WEBAPI.Entities
                 {
                     ID = 6,
                     Name = "Ramses Hilton",
-                    Location = "1115 , Cairo, Egypt"
+                    Location = "Cairo, Egypt"
                 }
             );
         }

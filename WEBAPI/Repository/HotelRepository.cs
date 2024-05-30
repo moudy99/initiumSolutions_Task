@@ -35,9 +35,9 @@ namespace WEBAPI.Repository
             await _context.SaveChangesAsync();
         }
 
-        public async Task<bool> HasPreviousBookingAsync(string nationalID)
+        public async Task<bool> HasPreviousBookingAsync(string nationalID, int hotelID)
         {
-            return await _context.Bookings.AnyAsync(b => b.Customer.NationalID == nationalID);
+            return await _context.Bookings.AnyAsync(b => b.Customer.NationalID == nationalID && b.BranchID == hotelID);
         }
     }
 }

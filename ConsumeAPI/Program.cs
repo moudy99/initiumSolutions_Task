@@ -9,7 +9,7 @@ namespace ConsumeAPI
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            builder.Services.AddControllersWithViews();
+            builder.Services.AddControllersWithViews().AddNewtonsoftJson();
             builder.Services.AddHttpClient();
 
             builder.Services.AddScoped<IHotelRepository, HotelRepository>();
@@ -32,7 +32,7 @@ namespace ConsumeAPI
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{controller=Hotel}/{action=Index}/{id?}");
 
             app.Run();
         }

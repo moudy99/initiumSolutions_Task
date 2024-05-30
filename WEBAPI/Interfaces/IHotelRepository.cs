@@ -8,6 +8,6 @@ namespace WEBAPI.Interfaces
         Task AddBookingAsync(Booking booking);
         Task<Customer> GetCustomerByNationalIDAsync(string nationalID);
         Task AddCustomerAsync(Customer customer);
-        Task<bool> HasPreviousBookingAsync(string nationalID);
+        Task<bool> HasPreviousBookingAsync(string nationalID, int hotelID);
     }
 }

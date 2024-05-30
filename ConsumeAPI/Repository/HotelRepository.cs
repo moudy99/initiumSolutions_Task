@@ -1,5 +1,6 @@
 ﻿using ConsumeAPI.ViewModel;
 using Newtonsoft.Json;
+using System.Text;
 
 namespace ConsumeAPI.Repository
 {
@@ -32,9 +33,25 @@ namespace ConsumeAPI.Repository
             return list;
         }
 
-        public Task<string> BookRoomAsync(BookingViewModel bookingRequest)
+        public async Task<customResponse<string>> BookRoomAsync(BookingViewModel bookingRequest)
         {
-            throw new NotImplementedException();
+            var jsonContent = JsonConvert.SerializeObject(bookingRequest);
+            var httpContent = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+
+            var response = await _httpClient.PostAsync(_baseAddress + "/Hotel/BookRoom", httpContent);
+            if (response.IsSuccessStatusCode)
+            {
+                var responseData = await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<customResponse<string>>(responseData);
+            }
+            else
+            {
+                return new customResponse<string>()
+                {
+                    Succeeded = false,
+                    Message = "Failed to book room"
+                };
+            }
         }
     }
 }
