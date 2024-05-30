@@ -50,15 +50,15 @@
                         <input asp-for="Rooms" class="form-control" placeholder="Number of Rooms(Maximum 4 here)" type="number" id="numberOfRooms" max="4" required />
                     </div>
 
-                    <button type="button" id="nextButton" class="btn btn-secondary">Next</button>
+                    <button type="button" id="nextButton" class="btn test-btn-">Next</button>
                 </div>
 
                 <div id="step2" style="display: none;">
                     <div id="roomDetailsContainer"></div>
-                    <button type="button" id="prevButton" class="btn btn-outline-primary">Previous</button>
-                    <button type="button" id="addRoomButton" class="btn btn-primary">Add Room</button>
+                    <button type="button" id="prevButton" class="btn btn-secondary">Previous</button>
+                    <button type="button" id="addRoomButton" class="btn btn-secondary">Add Room</button>
 
-                    <input type="submit" value="Book" class="book-btn btn btn-success" />
+                    <input type="submit" value="Book" id="booking-btn" class="book-btn btn btn-success" />
                 </div>
             </form>
         </div>

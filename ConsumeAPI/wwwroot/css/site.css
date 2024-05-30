@@ -21,6 +21,7 @@ body {
     width: 500px;
     max-width: 80%;
     margin: auto;
+    margin-top:15px;
 }
 
 .inputLabel {
@@ -56,9 +57,8 @@ body {
         outline: none;
         box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
     }
-
-.form-group input[type="submit"] , custom_button{
-    background-color: #f2712c;
+#nextButton {
+    background-color: #f2712c !important;
     border: none;
     border-radius: 10px;
     color: #fff;
@@ -68,10 +68,18 @@ body {
     width: 100%;
     transition: background-color 0.3s ease;
 }
-
-    .form-group input[type="submit"]:hover {
-        background-color: #e31b1b;
-    }
+ #booking-btn {
+    background-color: #f2712c !important;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+#booking-btn:hover, #nextButton:hover {
+    background-color: #e31b1b;
+}
 
 .login-link {
     text-align: center;
